@@ -1,6 +1,6 @@
 ﻿namespace minesweeper_cs
 {
-    partial class Form1
+    partial class GameWindow
     {
         /// <summary>
         ///  Required designer variable.
