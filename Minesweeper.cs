@@ -2,9 +2,6 @@ namespace minesweeper_cs
 {
     internal static class Minesweeper
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -12,12 +9,13 @@ namespace minesweeper_cs
             ApplicationConfiguration.Initialize();
             Application.Run(new GameWindow());
 
+            // Constants for default game settings
             const int BeginnerBoardWidth = 9;
             const int BeginnerBoardHeight = 9;
             const int BeginnerMines = 10;
 
             Tile[,] board = new Tile[BeginnerBoardWidth, BeginnerBoardHeight];
-            int mines = BeginnerMines;
+            int mineCount = BeginnerMines;
 
         }
     }
