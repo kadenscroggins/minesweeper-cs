@@ -20,6 +20,11 @@
             base.Dispose(disposing);
         }
 
+        internal void AddButton(Button button)
+        {
+            Controls.Add(button);
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,10 +33,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // GameWindow
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(484, 461);
+            this.Name = "GameWindow";
+            this.Text = "Minesweeper";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
