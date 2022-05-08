@@ -20,9 +20,18 @@
             base.Dispose(disposing);
         }
 
-        internal void AddButton(Button button)
+        internal void AddTile(Tile tile)
         {
-            Controls.Add(button);
+            Controls.Add(tile);
+        }
+
+        internal int TitlebarHeight()
+        {
+            Rectangle screenRectangle = this.RectangleToScreen(this.ClientRectangle);
+
+            int titleHeight = screenRectangle.Top - this.Top;
+
+            return titleHeight;
         }
 
         #region Windows Form Designer generated code
