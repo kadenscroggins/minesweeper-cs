@@ -15,12 +15,11 @@ namespace minesweeper_cs
         public bool flagged;
         public int bordering;
 
-        public Tile(int posX, int posY)
+        public Tile()
         {
             mine = false;
             flagged = false;
             bordering = 0;
-            base.Location = new Point(posX * positionMultiplier, posY * positionMultiplier);
             base.Size = new Size(sizeMultiplier, sizeMultiplier);
         }
     }
