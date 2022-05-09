@@ -22,7 +22,7 @@ namespace minesweeper_cs
 
             Tile.sizeMultiplier = 30;
             Tile.positionMultiplier = 30;
-            SetDifficulty(BeginnerMines, BeginnerBoardWidth, BeginnerBoardHeight);
+            SetDifficulty(BeginnerBoardWidth, BeginnerBoardHeight, BeginnerMines);
             StartGame();
         }
         static void StartGame()
@@ -34,12 +34,12 @@ namespace minesweeper_cs
             gameWindow.MaximizeBox = false;
 
             // Create board and place tiles on it
-            gameWindow.CreateTiles(boardWidth, boardHeight);
+            gameWindow.CreateTiles(boardWidth, boardHeight, mineCount);
 
             Application.Run(gameWindow);
         }
 
-        static void SetDifficulty(int mineCount, int boardWidth, int boardHeight)
+        static void SetDifficulty(int boardWidth, int boardHeight, int mineCount)
         {
             Minesweeper.mineCount = mineCount;
             Minesweeper.boardWidth = boardWidth;

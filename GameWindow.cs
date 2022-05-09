@@ -32,14 +32,15 @@ namespace minesweeper_cs
         {
             Tile tile = sender as Tile;
             tile.Text = "!";
+            if (tile.mine) tile.Text = "M";
         }
 
-        internal void CreateTiles(int width, int height)
+        internal void CreateTiles(int boardWidth, int boardHeight, int mineCount)
         {
-            board = new Tile[width, height];
-            for (int i = 0; i < width; i++)
+            board = new Tile[boardWidth, boardHeight];
+            for (int i = 0; i < boardWidth; i++)
             {
-                for (int j = 0; j < height; j++)
+                for (int j = 0; j < boardHeight; j++)
                 {
                     board[i, j] = new Tile(j, i)
                     {
@@ -49,6 +50,18 @@ namespace minesweeper_cs
                     board[i, j].Click += new EventHandler(this.ButtonClick);
                     this.mineGrid.Controls.Add(board[i, j]);
                 }
+            }
+
+            // This section is not finished!
+            // Need to make it check if the tile is already a mine, and run again if so.
+            // Need to validate the number of mines is less than or equal to amount of tiles on the board
+            // Need to verify mines can get placed on every tile
+            Random random = new Random((int)DateTimeOffset.Now.ToUnixTimeSeconds());
+            for (int i = 0; i < mineCount; i++)
+            {
+                int x = random.Next(0, boardWidth);
+                int y = random.Next(0, boardHeight);
+                board[x, y].mine = true;
             }
         }
     }
