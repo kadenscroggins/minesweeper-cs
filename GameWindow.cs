@@ -31,7 +31,7 @@ namespace minesweeper_cs
         protected void ButtonClick(object sender, EventArgs e)
         {
             Tile tile = sender as Tile;
-            MessageBox.Show("Position - X: " + tile.x + " Y: " + tile.y);
+            tile.Text = "!";
         }
 
         internal void CreateTiles(int width, int height)
