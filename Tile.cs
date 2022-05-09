@@ -14,9 +14,13 @@ namespace minesweeper_cs
         public bool mine;
         public bool flagged;
         public int bordering;
+        public int x;
+        public int y;
 
-        public Tile()
+        public Tile(int x, int y)
         {
+            this.x = x;
+            this.y = y;
             mine = false;
             flagged = false;
             bordering = 0;

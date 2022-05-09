@@ -29,19 +29,7 @@ namespace minesweeper_cs
             gameWindow.MaximizeBox = false;
 
             // Create board and place tiles on it
-            Tile[,] board = new Tile[boardWidth, boardHeight];
-            for (int i = 0; i < boardWidth; i++)
-            {
-                for (int j = 0; j < boardHeight; j++)
-                {
-                    board[i, j] = new Tile
-                    {
-                        Dock = DockStyle.Fill,
-                        Margin = new Padding(0, 0, 0, 0)
-                    };
-                    gameWindow.mineGrid.Controls.Add(board[i, j]);
-                }
-            }
+            gameWindow.CreateTiles(boardWidth, boardHeight);
 
             Application.Run(gameWindow);
         }
