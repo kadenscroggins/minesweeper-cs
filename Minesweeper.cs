@@ -14,7 +14,10 @@ namespace minesweeper_cs
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-
+            StartGame();
+        }
+        static void StartGame()
+        {
             // Settings. Need to move to a config file.
             Tile.sizeMultiplier = 30;
             Tile.positionMultiplier = 30;
