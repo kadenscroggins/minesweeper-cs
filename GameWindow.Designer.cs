@@ -42,6 +42,7 @@
             this.mineGrid.Location = new System.Drawing.Point(0, 0);
             this.mineGrid.Margin = new System.Windows.Forms.Padding(0);
             this.mineGrid.Name = "mineGrid";
+            this.mineGrid.Padding = new System.Windows.Forms.Padding(2);
             this.mineGrid.RowCount = 2;
             this.mineGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.mineGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
