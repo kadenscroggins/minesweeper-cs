@@ -8,9 +8,9 @@ namespace minesweeper_cs
         const int BeginnerMines = 10;
 
         // Settings. Need to move to a config file.
-        static int mineCount;
-        static int boardWidth;
-        static int boardHeight;
+        internal static int mineCount;
+        internal static int boardWidth;
+        internal static int boardHeight;
 
         /// <summary>
         ///  The main entry point for the application.

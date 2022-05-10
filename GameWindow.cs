@@ -2,7 +2,7 @@ namespace minesweeper_cs
 {
     public partial class GameWindow : Form
     {
-        internal Tile[,]? board;
+        internal Tile[,] board;
 
         public GameWindow()
         {
@@ -31,8 +31,21 @@ namespace minesweeper_cs
         protected void ButtonClick(object sender, EventArgs e)
         {
             Tile tile = sender as Tile;
-            tile.Text = "!";
             if (tile.mine) tile.Text = "M";
+            else
+            {
+                this.mineGrid.SuspendLayout();
+                this.mineGrid.Controls.Remove(tile);
+                this.mineGrid.Controls.Add(new Label()
+                {
+                    Text = "" + GetBordering(tile.x, tile.y),
+                    Dock = DockStyle.Fill,
+                    Margin = new Padding(0, 0, 0, 0),
+                    Size = new Size(Tile.sizeMultiplier, Tile.sizeMultiplier),
+                    TextAlign = ContentAlignment.MiddleCenter
+                }, tile.x, tile.y);
+                this.mineGrid.ResumeLayout();
+            }
         }
 
         internal void CreateTiles(int boardWidth, int boardHeight, int mineCount)
@@ -61,6 +74,44 @@ namespace minesweeper_cs
                 if (!board[x, y].mine) board[x, y].mine = true;
                 else i--;
             }
+        }
+
+        internal int GetBordering(int x, int y)
+        {
+            int mines = 0;
+            if (y > 0)
+            {
+                if (board[y - 1, x].mine) mines++; // Up
+            }
+            if (y > 0 && x > 0)
+            {
+                if (board[y - 1, x - 1].mine) mines++; // Up & Left
+            }
+            if (y > 0 && x < Minesweeper.boardHeight - 1)
+            {
+                if (board[y - 1, x + 1].mine) mines++; // Up & Right
+            }
+            if (x > 0)
+            {
+                if (board[y, x - 1].mine) mines++; // Left
+            }
+            if (x < Minesweeper.boardHeight - 1)
+            {
+                if (board[y, x + 1].mine) mines++; // Right
+            }
+            if (y < Minesweeper.boardWidth - 1)
+            {
+                if (board[y + 1, x].mine) mines++; // Down
+            }
+            if (y < Minesweeper.boardWidth - 1 && x > 0)
+            {
+                if (board[y + 1, x - 1].mine) mines++; // Down & left
+            }
+            if (y < Minesweeper.boardWidth - 1 && x < Minesweeper.boardHeight - 1)
+            {
+                if (board[y + 1, x + 1].mine) mines++; // Down & right
+            }
+            return mines;
         }
     }
 }
