@@ -2,7 +2,7 @@ namespace minesweeper_cs
 {
     public partial class GameWindow : Form
     {
-        internal Tile[,] board;
+        internal Tile[,]? board;
 
         public GameWindow()
         {
@@ -52,16 +52,14 @@ namespace minesweeper_cs
                 }
             }
 
-            // This section is not finished!
-            // Need to make it check if the tile is already a mine, and run again if so.
-            // Need to validate the number of mines is less than or equal to amount of tiles on the board
-            // Need to verify mines can get placed on every tile
-            Random random = new Random((int)DateTimeOffset.Now.ToUnixTimeSeconds());
+            Random random = new((int)DateTimeOffset.Now.ToUnixTimeSeconds());
             for (int i = 0; i < mineCount; i++)
             {
+                if (mineCount > (boardWidth * boardHeight)) mineCount = (boardWidth * boardHeight);
                 int x = random.Next(0, boardWidth);
                 int y = random.Next(0, boardHeight);
-                board[x, y].mine = true;
+                if (!board[x, y].mine) board[x, y].mine = true;
+                else i--;
             }
         }
     }
