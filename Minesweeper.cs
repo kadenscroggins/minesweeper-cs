@@ -25,7 +25,7 @@ namespace minesweeper_cs
             SetDifficulty(BeginnerBoardWidth, BeginnerBoardHeight, BeginnerMines);
             StartGame();
         }
-        static void StartGame()
+        public static void StartGame()
         {
             // Create form and adjust its settings
             GameWindow gameWindow = new();
@@ -36,7 +36,8 @@ namespace minesweeper_cs
             // Create board and place tiles on it
             gameWindow.CreateTiles(boardWidth, boardHeight, mineCount);
 
-            Application.Run(gameWindow);
+            gameWindow.ShowDialog();
+            //Application.Run(gameWindow);
         }
 
         static void SetDifficulty(int boardWidth, int boardHeight, int mineCount)

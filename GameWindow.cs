@@ -113,5 +113,11 @@ namespace minesweeper_cs
             }
             return mines;
         }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Need to make this actually delete the old form, not just hide it
+            Minesweeper.StartGame();
+        }
     }
 }
