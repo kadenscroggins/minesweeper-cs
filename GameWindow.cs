@@ -31,9 +31,16 @@ namespace minesweeper_cs
         protected void ButtonClick(object sender, EventArgs e)
         {
             Tile tile = sender as Tile;
-            if (tile.mine) tile.Text = "M";
+            if (tile.mine)
+            {
+                MessageBox.Show("You Lose!");
+                return;
+            }
             else
             {
+                tile.revealed = true;
+                Tile.totalRevealed++;
+
                 this.mineGrid.SuspendLayout();
                 this.mineGrid.Controls.Remove(tile);
                 this.mineGrid.Controls.Add(new Label()
@@ -45,6 +52,10 @@ namespace minesweeper_cs
                     TextAlign = ContentAlignment.MiddleCenter
                 }, tile.x, tile.y);
                 this.mineGrid.ResumeLayout();
+            }
+            if (Tile.totalRevealed == Minesweeper.boardWidth * Minesweeper.boardHeight - Minesweeper.mineCount)
+            {
+                MessageBox.Show("You Win!");
             }
         }
 

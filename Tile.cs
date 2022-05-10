@@ -10,9 +10,11 @@ namespace minesweeper_cs
     {
         public static int sizeMultiplier = 1;
         public static int positionMultiplier = 1;
+        public static int totalRevealed = 0;
 
         public bool mine;
         public bool flagged;
+        public bool revealed;
         public int bordering;
         public int x;
         public int y;
@@ -23,6 +25,7 @@ namespace minesweeper_cs
             this.y = y;
             mine = false;
             flagged = false;
+            revealed = false;
             bordering = 0;
             base.Size = new Size(sizeMultiplier, sizeMultiplier);
         }
