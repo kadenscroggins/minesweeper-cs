@@ -72,7 +72,7 @@ namespace minesweeper_cs
                         Margin = new Padding(0, 0, 0, 0)
                     };
                     board[i, j].Click += new EventHandler(this.ButtonClick);
-                    this.mineGrid.Controls.Add(board[i, j]);
+                    this.mineGrid.Controls.Add(board[i, j], j, i);
                 }
             }
 
