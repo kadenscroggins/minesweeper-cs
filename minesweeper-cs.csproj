@@ -8,10 +8,22 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>minesweeper-cs.ico</ApplicationIcon>
+    <SignAssembly>False</SignAssembly>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/kadenscroggins/minesweeper-cs</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>C:\Users\nyny8\source\repos\minesweeper-cs\LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="minesweeper-cs.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
